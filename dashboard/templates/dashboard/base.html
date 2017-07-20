@@ -1,0 +1,188 @@
+{% load staticfiles %}
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        FLEET MANAGEMENT
+    </title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'dashboard/base.css' %}">
+    <!-- PUT ANY CDN REFERENCES BELOW -->
+        <!-- Bootstrap 4-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        <!-- Bootstrap Chart -->
+        <link type="text/css" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/css/mdb.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/js/mdb.min.js"></script>
+        <!-- HighChart CDN-->
+        <script src="https://code.highcharts.com/highcharts.src.js"></script>
+         <!-- jQuery CDN -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+
+</head>
+
+
+<body>
+    <div id="wrapper">
+        <div id="head" class="row">
+          <div class="col-md-12">
+            <h1>GIS ANALYTICS</h1>
+            <a href="about.html">ABOUT</a>
+            <a href="login.html">LOGIN</a>
+          </div>
+        </div>
+
+        <div class="sidebar-wrap">
+	            <!-- START OF SIDEBAR -->
+              <div class="row">
+	            <div id="sidebar2" class="col-xs-2">
+	                <!--Side Menu -->
+	                    <div id="accordion" role="tablist" aria-multiselectable="true">
+	                        <div class="card">
+	                            <div class="card-header" role="tab" id="headingOne">
+	                                <h6 class="mb-0">
+	                                    <a href="index.html">
+	                                    <img src="{% static 'dashboard/icon/four-squares-with-frame-shape.png' %}" width="32px">
+	                                    <span> Dashboard</span>
+	                                    </a>
+	                                </h6>
+	                            </div>
+	                        </div>
+	                        <div class="card">
+	                            <div class="card-header" role="tab" id="headingOne">
+	                                <h6 class="mb-0">
+	                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+	                                    <img src="{% static 'dashboard/icon/person.png' %}" width="32px">
+	                                    <span> Admin</span>
+	                                    </a>
+	                                </h6>
+	                            </div>
+	                            <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+	                                    <div class="card-block">
+	                                            <a href="driverSchedule.html">&#9656; Driver Scheduling</a>
+	                                            <a href="#">&#9656; Inventory Kendaraan</a>
+
+	                                    </div>
+	                            </div>
+	                        </div>
+	                        <div class="card">
+	                            <div class="card-header" role="tab" id="headingTwo">
+	                                <h6 class="mb-0">
+	                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+	                                    <img src="{% static 'dashboard/icon/download-business-statistics-symbol-of-a-graphic.png' %}" width="32px">
+	                                    <span> Operational</span>
+	                                    </a>
+	                                </h6>
+	                            </div>
+	                                <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+	                                    <div class="card-block">
+	                                        <a href="track.html">&#9656; Trace</a>
+	                                        <a href="search.html">&#9656; Search</a>
+	                                        <a href="#">&#9656; Status Alarm Kendaraan</a>
+	                                    </div>
+	                                </div>
+	                  </div>
+	                        <div class="card">
+	                            <div class="card-header" role="tab" id="headingThree">
+	                                <h6 class="mb-0" >
+	                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+	                                    <img src="{% static 'dashboard/icon/searching-file-interface-symbol.png' %}" width="32px">
+	                                    <span> Reporting</span>
+	                                    </a>
+	                                </h6>
+	                            </div>
+	                            <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+	                                <div class="card-block">
+	                                    <a href="daftarDriver.html" class="fa fa-driver">&#9656; List Driver</a>
+	                                    <a href="#">&#9656; List Kendaraan</a>
+	                                    <a href="#">&#9656; RIT</a>
+	                                    <a href="#">&#9656; Analisis Wilayah</a>
+	                                    <a href="#">&#9656; Analisis Kendaraan</a>
+	                                    <a href="#">&#9656; Konsumsi BBM</a>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </div><!-- END OF SIDE MENU -->
+	            </div><!-- END OF SIDEBAR -->
+            </div>
+        </div><!-- END OF SIDEBAR WRAP -->
+        <!-- CONTENT START HERE -->
+        <div class="contentBox" ng-app="fleetMgmt">
+            <h4>Welcome to your Dashboard</h4>
+            <!-- Counter Divs-->
+            <div id="counter-container" class="row">
+                <div id="counter1" class="col-md-4">
+                    Kendaraan Aktif hari ini
+                   <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                    </div>
+                </div>
+                <div id="counter2" class="col-md-4">
+                    Kendaraan Tidak Aktif hari ini
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50</div>
+                    </div>
+                </div>
+                 <div id="counter3" class="col-md-4">
+                    Total Driver saat ini
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+            {% block content %}
+            {% endblock %}
+            </div>
+
+            <div id="Box1" class="cbox">
+             <!--  <div class="cbox-top">
+                <h2>Dual Line Chart </h2>
+              </div> -->
+              <div class="cbox-content">
+                <div id="dual-lineChart"></div>
+              </div>
+            </div>
+
+            <div id="Box2" class="cbox">
+              <div class="cbox-content">
+                <div id="liveSpline">
+                </div>
+              </div>
+            </div>
+            
+        </div>
+        <!-- END OF contentBox -->
+    </div>
+    <!--END OF BODY WRAPPER -->
+
+    <!--LOCAL JS -->
+      <!-- Highchart Script -->
+      <script src="{% static 'dashboard/js/solid-gauge.js' %}"></script>
+      <script src="{% static 'dashboard/js/halfDonutChart.js' %}"></script>
+      <script src="{% static 'dashboard/js/areasplineChart.js' %}"></script>
+      <script src="{% static 'dashboard/js/pieChart.js' %}"></script>
+      <script src="{% static 'dashboard/js/dual-linChart.js' %}"></script>
+      <script src="{% static 'dashboard/js/liveSpline.js' %}"></script>
+
+    <!-- Always Put Chart/Animation/else here -->
+          <!-- High Chart   -->
+          <script src="{% static 'dashboard/assets/chart/Highcharts-5.0.10/code/highcharts.js' %}"></script>
+          <script src="{% static 'dashboard/assets/chart/Highcharts-5.0.10/code/highcharts-more.js' %}"></script>
+          <script src="{% static 'dashboard/assets/chart/Highcharts-5.0.10/code/modules/data.js' %}"></script>
+          <script src="{% static 'dashboard/assets/chart/Highcharts-5.0.10/code/modules/drilldown.js' %}"></script>
+          <script src="{% static 'dashboard/assets/chart/Highcharts-5.0.10/code/modules/exporting.js' %}"></script>
+    <!-- Bootstrap4 CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/js/mdb.min.js"></script>
+
+</body>
+
+</html>
