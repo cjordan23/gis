@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'dashboard',
     'operationalTrack',
     'operationalSearch',
+    'assetmgmt',
     'highcharts',
     'django.contrib.admin',
     'django.contrib.auth',

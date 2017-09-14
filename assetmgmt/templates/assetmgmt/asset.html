@@ -1,0 +1,211 @@
+{% load staticfiles %}
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        ASSETS MANAGEMENT
+    </title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'assetmgmt/asset.css' %}">
+    <!-- PUT ANY CDN REFERENCES BELOW -->
+    <link rel="stylesheet" href="https://js.arcgis.com/4.3/esri/css/main.css">
+    <script src="https://js.arcgis.com/4.3/"></script>
+    <!-- ArcGis Map Script -->
+    <script>
+            require([
+              "esri/views/MapView",
+              "esri/WebMap",
+              "esri/widgets/Search",
+              "dojo/domReady!"
+            ], function(
+              MapView, WebMap,Search
+            ) {
+
+              /************************************************************
+               * Creates a new WebMap instance. A WebMap must reference
+               * a PortalItem ID that represents a WebMap saved to
+               * arcgis.com or an on-premise portal.
+               *
+               * To load a WebMap from an on-premise portal, set the portal
+               * url in esriConfig.portalUrl.
+               ************************************************************/
+              var webmap = new WebMap({
+                portalItem: { // autocasts as new PortalItem()
+                  id: "f2e9b762544945f390ca4ac3671cfa72"
+                }
+              });
+
+              /************************************************************
+               * Set the WebMap instance to the map property in a MapView.
+               ************************************************************/
+              var view = new MapView({
+                map: webmap,
+                container: "viewDiv"
+              });
+                var searchWidget = new Search({
+                view: view
+              });
+
+              // Add the search widget to the very top left corner of the view
+              view.ui.add(searchWidget, {
+                position: "top-left",
+                index: 0
+              });
+            });
+    </script>
+        <!-- Bootstrap 4-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        <!-- Bootstrap Chart -->
+        <link type="text/css" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/css/mdb.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/js/mdb.min.js"></script>
+        <!-- HighChart CDN-->
+        <script src="https://code.highcharts.com/highcharts.src.js"></script>
+        <!-- jQuery CDN -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <div id="wrapperBody">
+      <div id="head">
+          <h1>MANAGEMET</h1>
+          <a class="aboutLink" href="about.html">ABOUT</a>
+          <a class="loginLink" href="login.html">LOGIN</a>
+      </div>
+      <div class="row no-gutters">
+        	<div class="col-2">
+        		<div id="sidebarMenu"><!--Side Menu -->
+        			<div id="accordion" role="tablist" aria-multiselectable="true">
+        					<div class="card">
+        											<div class="card-header" role="tab" id="headingOne">
+        													<h6 class="mb-0">
+        															<a href="index.html">
+        															<img src="{% static 'dashboard/icon/four-squares-with-frame-shape.png' %}" width="32px">
+        															<span> Dashboard</span>
+        															</a>
+        													</h6>
+        											</div>
+        									</div>
+        					<div class="card">
+        											<div class="card-header" role="tab" id="headingOne">
+        													<h6 class="mb-0">
+        															<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        															<img src="{% static 'dashboard/icon/person.png' %}" width="32px">
+        															<span> Admin</span>
+        															</a>
+        													</h6>
+        											</div>
+        											<div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+        															<div class="card-block">
+        																			<a href="driverSchedule.html">&#9656; Daftar Asset</a>
+        																			<a href="#">&#9656; ______</a>
+
+        															</div>
+        											</div>
+        									</div>
+        					<div class="card">
+        											<div class="card-header" role="tab" id="headingTwo">
+        													<h6 class="mb-0">
+        															<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        															<img src="{% static 'dashboard/icon/download-business-statistics-symbol-of-a-graphic.png' %}" width="32px">
+        															<span> Operational</span>
+        															</a>
+        													</h6>
+        											</div>
+        													<div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+        															<div class="card-block">
+        																	<a href="track.html">&#9656; Lokasi Asset</a>
+        																	<a href="search.html">&#9656; Cari Asset</a>
+        																	<a href="#">&#9656; Status Aseet</a>
+        															</div>
+        													</div>
+        									</div>
+        					<div class="card">
+        											<div class="card-header" role="tab" id="headingThree">
+        													<h6 class="mb-0" >
+        															<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        															<img src="{% static 'dashboard/icon/searching-file-interface-symbol.png' %}" width="32px">
+        															<span> Reporting</span>
+        															</a>
+        													</h6>
+        											</div>
+        											<div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+        													<div class="card-block">
+        															<a href="daftarDriver.html" class="fa fa-driver">&#9656; List Driver</a>
+        															<a href="#">&#9656; List Kendaraan</a>
+        															<a href="#">&#9656; RIT</a>
+        															<a href="#">&#9656; Analisis Wilayah</a>
+        															<a href="#">&#9656; Analisis Kendaraan</a>
+        															<a href="#">&#9656; Konsumsi BBM</a>
+        													</div>
+        											</div>
+        									</div>
+        			</div><!-- END OF SIDE MENU -->
+        		</div>
+        	</div>
+        	<div class="col-10">
+        		<div class="contentBox" ng-app="fleetMgmt">
+        				<div id="MapBox" class="cbox">
+        					<div class="cbox-content">
+        						<div class="mapContainer">
+        							<div id="viewDiv"></div>
+        					 </div>
+        					</div>
+        				</div>
+
+        			<div id="Box1" class="cbox">
+        				<div class="cbox-content">
+        					<div id="dual-lineChart"></div>
+        				</div>
+        			</div>
+
+        			<div id="Box1" class="cbox">
+        				<div class="cbox-content">
+        					<div id="pieChart"></div>
+        				</div>
+        			</div>
+
+        			<div id="Box1" class="cbox">
+        				<div class="cbox-content">
+        					<div id="halfDonutChart"></div>
+        				</div>
+        			</div>
+
+        		</div><!-- END OF contentBox -->
+        	</div>
+      </div>
+
+
+    </div><!--END OF BODY WRAPPER -->
+
+    <!--LOCAL JS -->
+
+      <!-- Highchart JavaScript -->
+      <script src="{% static 'dashboard/js/solid-gauge.js' %}"></script>
+      <script src="{% static 'dashboard/js/halfDonutChart.js' %}"></script>
+      <script src="{% static 'dashboard/js/areasplineChart.js' %}"></script>
+      <script src="{% static 'dashboard/js/pieChart.js' %}"></script>
+      <script src="{% static 'dashboard/js/dual-linChart.js' %}"></script>
+      <script src="{% static 'dashboard/js/liveSpline.js' %}"></script>
+
+    <!-- Always Put Chart/Animation/else here -->
+          <!-- High Chart   -->
+          <script src="{% static 'dashboard/assets/chart/Highcharts-5.0.10/code/highcharts.js' %}"></script>
+          <script src="{% static 'dashboard/assets/chart/Highcharts-5.0.10/code/highcharts-more.js' %}"></script>
+          <script src="{% static 'dashboard/assets/chart/Highcharts-5.0.10/code/modules/data.js' %}"></script>
+          <script src="{% static 'dashboard/assets/chart/Highcharts-5.0.10/code/modules/drilldown.js' %}"></script>
+          <script src="{% static 'dashboard/assets/chart/Highcharts-5.0.10/code/modules/exporting.js' %}"></script>
+
+    <!-- Bootstrap4 CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.3.0/js/mdb.min.js"></script>
+</body>
+
+</html>
