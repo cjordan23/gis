@@ -4,10 +4,10 @@ Highcharts.chart('pieChart', {
         type: 'pie'
     },
     title: {
-        text: 'Browser market shares. January, 2015 to May, 2015'
+        text: 'Persentase Perbandingan Asset. January, 2016 to May, 2016'
     },
     subtitle: {
-        text: 'Click the slices to view versions. Source: netmarketshare.com.'
+        text: '*Ini hanya Mock-up UI*'
     },
     plotOptions: {
         series: {
@@ -26,13 +26,13 @@ Highcharts.chart('pieChart', {
         name: 'Brands',
         colorByPoint: true,
         data: [{
-            name: 'Microsoft Internet Explorer',
+            name: 'Menara Multimedia',
             y: 56.33,
             drilldown: 'Microsoft Internet Explorer'
         }, {
-            name: 'Chrome',
+            name: 'Gambir',
             y: 24.03,
-            drilldown: 'Chrome'
+            drilldown: 'BDV'
         }, {
             name: 'Firefox',
             y: 10.38,

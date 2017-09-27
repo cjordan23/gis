@@ -5,7 +5,7 @@ Highcharts.chart('halfDonutChart', {
         plotShadow: false
     },
     title: {
-        text: 'Driver<br>RIT<br>Mei 2017',
+        text: 'JUDUL',
         align: 'center',
         verticalAlign: 'middle',
         y: 40
@@ -79,4 +79,3 @@ Highcharts.chart('halfDonutChart', {
         }]
     }
 });
-

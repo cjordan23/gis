@@ -16,10 +16,14 @@
 @media (min-width: @screen-md-min) and (max-width: @screen-md-max) { ... }
 @media (min-width: @screen-lg-min) { ... }
 
+body{
+ background: -webkit-linear-gradient(to right, #403A3E,#BE5869);  /* Chrome 10-25, Safari 5.1-6 */
+ background: linear-gradient(to right,#403A3E, #BE5869); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
+}
 #wrapperBody {
-    width:100%;
-    height: 100%;
+ width:100%;
+ height: 100%;
 }
 
 /* Bagian Header */
@@ -119,40 +123,22 @@ span {
 }
 
 /* Container Box */
-.contentBox {
-  top: 100px;
-  left: 0;
-  overflow: hidden;
-  position: relative;
-  z-index: -1;
-  background:-webkit-linear-gradient(-50deg,#ECE9E6,#FFFFFF);
-  background:-moz-linear-gradient(-50deg,#ECE9E6,#FFFFFF);
+
+.col-10, .contentBox{
+ top: 100px;
+ left: -200px;
 }
 .cbox{
-    margin: 0.6%;
-    float: left;
-    box-shadow: 0px 4px 8px 4px rgba(0,0,0,0.2);
-}
-.cbox h2{
-    font-size:20px;
-    padding:10px;
-}
-.cbox .cbox-top{
-    color: #fff;
-    text-shadow: 0px 0px 2px #ddd;
-    background:-webkit-linear-gradient(-50deg,#30a634,#52668e);
-    background:-moz-linear-gradient(-50deg,#30a634,#52668e);
-    padding: 10px 0px 1px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+ margin: 0.6%;
+ float: left;
+ box-shadow: 0px 4px 8px 4px rgba(0,0,0,0.2);
 }
 .cbox-content {
     height: auto;
     width: auto;
     padding: 1%;
     background-color: #fff;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+    border-radius: 10px;
 
 
 }
@@ -160,7 +146,7 @@ span {
 
 #MapBox .cbox-content{
     float: left;
-    width: 70vw;
+    width: 80vw;
     height: auto;
     display:inline-block;
 }
@@ -183,30 +169,30 @@ span {
 /* USING inline-block and auto height,width to make chart auto sizing based on the container*/
 #Box1 .cbox-content {
     display: inline-block;
-    float: left;
+
     height: auto;
     width: auto;
 }
 #Box2 .cbox-content{
     display: inline-block;
-    float: left;
+
     height: auto;
     width: 521px;
 }
 
 #Box3 .cbox-content{
-    float: left;
+
     width: 1065px;
     height: auto;
     display:inline-block;
 }
 #Box4 .cbox-content{
-    float: left;
+
     height:auto;
     width: 460px;
 }
 #Box5 .cbox-content{
-    float: left;
+
     height:400px;
     width: 600px;
     display: inline-block;
