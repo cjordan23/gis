@@ -23,5 +23,6 @@ urlpatterns = [
     url(r'^dashboard/', include('dashboard.urls')),
     url(r'^operationalTrack/', include('operationalTrack.urls')),
     url(r'^operationalSearch/', include('operationalSearch.urls')),
-    url(r'^assetmgmt/',include('assetmgmt.urls')),
+    url(r'^assetmgmt/', include('assetmgmt.urls')),
+    url(r'^uidesign/', include('uidesign.urls')),
 ]
